@@ -6,7 +6,6 @@ Flask permet aux hooks des services webex et gitlab de pouvoir taper sur l'app.
 
 ### Ngrok
 Ngrok nous permet d'host l'application en local et d'ouvrir un accès au monde du dehors à notre machine.  
-`ngrok http 8080`
 
 **Ce bot n'est pas fonctionnel tel quel.**  
 Vous avez besoin des droits admin sur gitlab pour avoir l'autorisation de créer des webhooks chez ce dernier.  
