@@ -19,8 +19,8 @@ Je vous invite a bien faire le tour si vous souhaitez l'utiliser.
 ### Comment ça marche ?
 
 Vous aurez besoin de clé d'authorisations de chaque côté:
--
--
+- [Cisco Webex Developers](https://developer.webex.com/)
+- Gitlab > Settings > Access Tokens
 
 Crée un fichier `secrets.json` à la racine du projet.  
 ```bash
@@ -29,8 +29,8 @@ mkdir secrets.json
 Remplacer par vos clés.
 ```json
 {
-    "gitlab": your_access_key,
-    "webex": your_access_key
+    "gitlab": "your_access_key",
+    "webex": "your_access_key"
 }
 ```
 
