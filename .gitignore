@@ -1,0 +1,6 @@
+secrets.json
+*.pyc
+*.py.swp
+*.py.swo
+*.json.swp
+/.venv/
