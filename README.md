@@ -1,5 +1,6 @@
 # Bot Cisco Webex Teams - Gitlab
 
+
 ### Flask
 Flask permet aux hooks des services webex et gitlab de pouvoir taper sur l'app.
 
@@ -8,13 +9,13 @@ Ngrok nous permet d'host l'application en local et d'ouvrir un accès au monde d
 `ngrok http 8080`
 
 **Ce bot n'est pas fonctionnel tel quel.**  
-Vous avez besoin des droits admin sur gitlab pour avoir l'autorisation de créer des webhooks chez ce dernier. 
+Vous avez besoin des droits admin sur gitlab pour avoir l'autorisation de créer des webhooks chez ce dernier.  
 Puis je l'ai développé à des fins personnels, beaucoup de choses sont propres a des projets perso:
 - Label
 - ID du projet gitlab
 - URLs
 
-Je vous invite a bien faire le tour si vous souhaitez l'utiliser.
+Je vous invite à bien faire le tour si vous souhaitez l'utiliser.
 
 ### Comment ça marche ?
 
@@ -22,19 +23,31 @@ Vous aurez besoin de clé d'authorisations de chaque côté:
 - [Cisco Webex Developers](https://developer.webex.com/)
 - Gitlab > Settings > Access Tokens
 
-Crée un fichier `secrets.json` à la racine du projet.  
+1.
 ```bash
-mkdir secrets.json
+git clone https://github.com/Peskoo/cisco-teams-bot.git
 ```
-Remplacer par vos clés.
+```bash
+pip install flask
+pip install webexteamssdk
+```
+Installer ngrok en allant par [ici](https://ngrok.com/).
+
+Crée un fichier `secrets.json` à la racine du projet et remplacez par vos clés.
 ```json
 {
     "gitlab": "your_access_key",
     "webex": "your_access_key"
 }
 ```
-
-Ensuite dans webex, ouvrez une conversation avec `gitoune@webex.bot`.
+2.
+```bash
+ngrok http 8080
+```
+```bash
+python main.py
+```
+Puis dans webex, ouvrez une conversation avec `gitoune@webex.bot`.
 
 #### Commandes
 ```bash
