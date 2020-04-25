@@ -26,17 +26,17 @@ def create_gitlab(api, url):
     """Create a Gitlab webhook pointing to flask URL."""
 
     # Curl --header "Private-Token: valid_token" https://gitlab.outscale.internal/api/v4/projects/218/hooks
-    tina = api.projects.get(conf.GITLAB_TINA_ID)
+    project = api.projects.get(conf.GITLAB_PROJECT_ID)
 
     print('Creating Gitlab Webhook...')
     # Push events: When true, the hook will fire on push events.
-    webhook = tina.hooks.create({'url': url, 'push_events': 1})
+    webhook = project.hooks.create({'url': url, 'push_events': 1})
     print(webhook)
     print('Gitlab hook successfully created.')
 
 
 def delete_gitlab(api):
-    tina = api.projects.get(conf.GITLAB_TINA_ID)
+    project = api.projects.get(conf.GITLAB_PROJECT_ID)
 
-    for webhook in tina.hooks.list():
+    for webhook in project.hooks.list():
         print('delete: ', webhook)

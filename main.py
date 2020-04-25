@@ -36,13 +36,13 @@ app = Flask(__name__)
 
 
 class User:
-	"""User_id is your gitlab id, you need to add it to TINA_MEMBERS dict.
+	"""User_id is your gitlab id, you need to add it to MEMBERS dict.
 
 	You can find your gitlab id on gitlab, settings.
 	"""
 	def __init__(self, username, email=None):
 		self.username = username
-		self.user_id = conf.TINA_MEMBERS[self.username]
+		self.user_id = conf.MEMBERS[self.username]
 		self.email = email
 
 	def build_email(self):
@@ -54,7 +54,7 @@ class Gitlab(User):
 		"""Retrieve all opened merge requests with For Review label."""
 
 		endpoint = (
-			f'{conf.GITLAB_TINA_URL}merge_requests?state=opened&la'
+			f'{conf.GITLAB_PROJECT_URL}merge_requests?state=opened&la'
 			f'bels=aFor+Review&assignee_id={self.user_id}'
 		)
 		header = {'Private-Token': conf.GITLAB_ACCESS_TOKEN}
