@@ -6,6 +6,7 @@ with open('secrets.json', 'r') as f:
     data = f.read()
 secrets = json.loads(data)
 
+GITHUB_ACCESS_TOKEN = secrets['github']
 GITLAB_ACCESS_TOKEN = secrets['gitlab']
 GITLAB_PROJECT_ID = 218
 GITLAB_URL = secrets['url']
